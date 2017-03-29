@@ -45,10 +45,11 @@ main(){
         exit -1
     fi
 
+    render
     while [[ ! $gameResult ]]; do
-        render
         $currentTurn
         ((currentTurnNumber+=1))
+        render
         checkWinner
         currentTurn="${turnDelegate[$currentTurnNumber%2+1]}"
     done
